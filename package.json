@@ -1,0 +1,25 @@
+{
+  "name": "Lexi-WP-Theme",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^1.0.1",
+    "react": "0.13.3",
+    "react-redux": "^1.0.1",
+    "react-router": "1.0.0-beta3"
+  },
+  "devDependencies": {
+    "babel-core": "^5.6.18",
+    "babel-loader": "^5.1.4",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.9.11",
+    "webpack-dev-server": "^1.9.0",
+    "html-webpack-plugin": "^1.6.1"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && webpack",
+    "start": "npm run build && node server.js"
+  }
+}
