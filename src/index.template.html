@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <div id="app"></div>
+    <div id="root"></div>
     {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
     <script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
     {% } %}
