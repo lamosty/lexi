@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BrowserHistory from 'react-router/lib/BrowserHistory';
 import { Provider } from 'react-redux';
 import { Router, Route, DefaultRoute } from 'react-router';
-import App from './containers/App';
+import LexiTheme from './containers/LexiTheme';
 
 const history = new BrowserHistory();
 const store = configureStore();
@@ -19,7 +19,7 @@ class Root extends Component {
     renderRoutes(history) {
         return (
             <Router history={history}>
-                <Route path="/" component={App}>
+                <Route path="/" component={LexiTheme}>
                     <DefaultRoute component={ArticlesListingPage} />
                     <Route path="about" component={AboutPage} />
                     <Route path="articles" component={ArticlesListingPage} />
