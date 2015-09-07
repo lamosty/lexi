@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BrowserHistory from 'react-router/lib/BrowserHistory';
 import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router';
+import { Router, Route, DefaultRoute } from 'react-router';
 import App from './containers/App';
 
 const history = new BrowserHistory();
@@ -20,6 +20,10 @@ class Root extends Component {
         return (
             <Router history={history}>
                 <Route path="/" component={App}>
+                    <DefaultRoute component={ArticlesListingPage} />
+                    <Route path="about" component={AboutPage} />
+                    <Route path="articles" component={ArticlesListingPage} />
+                    <Route path="/:year/:month/:name" component={ArticlePage} />
                 </Route>
             </Router>
         );
