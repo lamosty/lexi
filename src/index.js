@@ -3,6 +3,8 @@ import BrowserHistory from 'react-router/lib/BrowserHistory';
 import { Provider } from 'react-redux';
 import { Router, Route, DefaultRoute } from 'react-router';
 import LexiTheme from './containers/LexiTheme';
+import Article from './containers/Article';
+import ArticleListing from './containers/ArticleListing';
 
 const history = new BrowserHistory();
 const store = configureStore();
@@ -20,10 +22,10 @@ class Root extends Component {
         return (
             <Router history={history}>
                 <Route path="/" component={LexiTheme}>
-                    <DefaultRoute component={ArticlesListingPage} />
-                    <Route path="about" component={AboutPage} />
-                    <Route path="articles" component={ArticlesListingPage} />
-                    <Route path="/:year/:month/:name" component={ArticlePage} />
+                    <DefaultRoute component={ArticleListing} />
+                    {/*<Route path="about" component={AboutPage} /> */}
+                    <Route path="articles" component={ArticleListing} />
+                    <Route path="/:year/:month/:name" component={Article} />
                 </Route>
             </Router>
         );
