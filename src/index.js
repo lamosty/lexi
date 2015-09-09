@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BrowserHistory from 'react-router/lib/BrowserHistory';
 import { Provider } from 'react-redux';
 import { Router, Route, DefaultRoute } from 'react-router';
+import configureStore from './store/configureStore';
 import LexiTheme from './containers/LexiTheme';
 import Article from './containers/Article';
 import ArticleListing from './containers/ArticleListing';
