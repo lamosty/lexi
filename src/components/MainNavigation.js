@@ -8,8 +8,8 @@ export default class MainNavigation extends Component {
                 <div className="container">
                     <nav className="nav blog-nav">
                         <Link to="/" className="nav-link">Home</Link>
-                        <Link to="/articles" className="nav-link">Articles</Link>
                         <Link to="/2015/02/some-article" className="nav-link">Some Article</Link>
+                        <Link to="/about" className="nav-link">About</Link>
                     </nav>
                 </div>
             </div>

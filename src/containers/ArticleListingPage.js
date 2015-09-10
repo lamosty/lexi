@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ArticleListing extends Component {
+export default class ArticleListingPage extends Component {
     render() {
         return (
             <div className="article-listing">

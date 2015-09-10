@@ -4,8 +4,9 @@ import { Provider } from 'react-redux';
 import { Router, Route, DefaultRoute } from 'react-router';
 import configureStore from './store/configureStore';
 import LexiTheme from './containers/LexiTheme';
-import Article from './containers/Article';
-import ArticleListing from './containers/ArticleListing';
+import ArticlePage from './containers/ArticlePage';
+import ArticleListingPage from './containers/ArticleListingPage';
+import AboutPage from './containers/AboutPage';
 import '../sass/bootstrap.css';
 import '../sass/bootstrap-blog.css';
 
@@ -25,10 +26,9 @@ class Root extends Component {
         return (
             <Router history={history}>
                 <Route component={LexiTheme}>
-                    <Route path="/" component={ArticleListing} />
-                    {/*<Route path="about" component={AboutPage} /> */}
-                    <Route path="articles" component={ArticleListing} />
-                    <Route path="/:year/:month/:name" component={Article} />
+                    <Route path="/" component={ArticleListingPage} />
+                    <Route path="/about" component={AboutPage} />
+                    <Route path="/:year/:month/:name" component={ArticlePage} />
                 </Route>
             </Router>
         );
