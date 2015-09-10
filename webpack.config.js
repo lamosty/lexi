@@ -19,7 +19,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.template.html'
+            template: './src/index.template.html',
+            inject: true
         }),
         new webpack.NoErrorsPlugin(),
         new ExtractTextPlugin("style.css", {
