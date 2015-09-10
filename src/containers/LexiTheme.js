@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 
-class LexiTheme extends Component {
+export default class LexiTheme extends Component {
     render() {
         return (
             <div>

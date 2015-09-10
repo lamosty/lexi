@@ -22,8 +22,8 @@ class Root extends Component {
     renderRoutes(history) {
         return (
             <Router history={history}>
-                <Route path="/" component={LexiTheme}>
-                    <DefaultRoute component={ArticleListing} />
+                <Route component={LexiTheme}>
+                    <Route path="/" component={ArticleListing} />
                     {/*<Route path="about" component={AboutPage} /> */}
                     <Route path="articles" component={ArticleListing} />
                     <Route path="/:year/:month/:name" component={Article} />
