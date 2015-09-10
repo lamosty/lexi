@@ -6,9 +6,8 @@ import configureStore from './store/configureStore';
 import LexiTheme from './containers/LexiTheme';
 import Article from './containers/Article';
 import ArticleListing from './containers/ArticleListing';
-
-require('../sass/bootstrap.css');
-require('../sass/bootstrap-blog.css');
+import '../sass/bootstrap.css';
+import '../sass/bootstrap-blog.css';
 
 const history = new BrowserHistory();
 const store = configureStore();
