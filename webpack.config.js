@@ -31,7 +31,7 @@ module.exports = {
                 include: __dirname
             }, {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
+                loaders: ['style', 'css']
             }, {
                 test: /\.png$/,
                 loader: "url-loader?limit=100000"
