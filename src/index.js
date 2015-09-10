@@ -8,6 +8,7 @@ import Article from './containers/Article';
 import ArticleListing from './containers/ArticleListing';
 
 require('bootstrap/dist/css/bootstrap.css');
+require('../sass/bootstrap-blog.css');
 
 const history = new BrowserHistory();
 const store = configureStore();
