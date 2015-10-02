@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BrowserHistory from 'react-router/lib/BrowserHistory';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { Provider } from 'react-redux';
 import { Router, Route, DefaultRoute } from 'react-router';
 import configureStore from './store/configureStore';
@@ -10,7 +10,7 @@ import AboutPage from './containers/AboutPage';
 import '../sass/bootstrap.css';
 import '../sass/bootstrap-blog.css';
 
-const history = new BrowserHistory();
+const history = new createBrowserHistory();
 const store = configureStore();
 
 class Root extends Component {
@@ -25,7 +25,7 @@ class Root extends Component {
     renderRoutes(history) {
         return (
             <Router history={history}>
-                <Route component={LexiTheme}>
+                <Route path="/" component={LexiTheme}>
                     <Route path="/" component={ArticleListingPage} />
                     <Route path="/about" component={AboutPage} />
                     <Route path="/:year/:month/:name" component={ArticlePage} />
