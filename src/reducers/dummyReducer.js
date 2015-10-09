@@ -1,5 +1,10 @@
-const initialState = 'dummy state';
+import { NEW_POST } from '../actions';
 
-export default function dummyReducer(state = initialState, action) {
-    return state;
+export default function dummyReducer(state = {}, action) {
+    switch (action.type) {
+        case NEW_POST:
+            return action.post;
+        default:
+            return state;
+    }
 }
