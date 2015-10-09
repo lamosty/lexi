@@ -11,14 +11,14 @@ class AboutPageContainer extends Component {
     }
 
     componentWillMount() {
-        this.props.nextPost();
+        this.props.fetchAboutPage();
     }
 
     render() {
         console.log('AboutPageContainer props: ', this.props);
-        const { post, nextPost } = this.props;
+        const { data } = this.props;
 
-        return (<AboutPage post={post} onNextPost={nextPost} />);
+        return (<AboutPage post={data} />);
     }
 }
 
@@ -26,7 +26,7 @@ class AboutPageContainer extends Component {
 export default connect(
     (state) => {
         return {
-            post: state.dummyReducer
+            data: state.aboutPageReducer
         }
     },
     postActions
