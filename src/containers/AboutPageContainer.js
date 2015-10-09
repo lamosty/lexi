@@ -1,32 +1,24 @@
 import React, { Component } from 'react';
 import AboutPage from '../components/AboutPage';
 import { connect } from 'react-redux';
-import { nextPost } from '../actions';
+import * as postActions from '../actions';
+import { bindActionCreators } from 'redux';
 
 // Smart component
 class AboutPageContainer extends Component {
     constructor(props) {
         super(props);
-
-        this.handleNextPost = this.handleNextPost.bind(this);
     }
 
     componentWillMount() {
-        const { dispatch } = this.props;
-        dispatch(nextPost());
-    }
-
-    handleNextPost() {
-        console.log('handleNextPost props: ', this.props);
-        const { dispatch } = this.props;
-        dispatch(nextPost());
+        this.props.nextPost();
     }
 
     render() {
         console.log('AboutPageContainer props: ', this.props);
-        const { post } = this.props;
+        const { post, nextPost } = this.props;
 
-        return (<AboutPage post={post} onNextPost={this.handleNextPost} />);
+        return (<AboutPage post={post} onNextPost={nextPost} />);
     }
 }
 
@@ -36,6 +28,7 @@ export default connect(
         return {
             post: state.dummyReducer
         }
-    }
+    },
+    postActions
 )(AboutPageContainer);
 
