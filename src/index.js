@@ -7,7 +7,7 @@ import configureStore from './store/configureStore';
 import LexiTheme from './containers/LexiTheme';
 import ArticlePage from './containers/ArticlePage';
 import ArticleListingPage from './containers/ArticleListingPage';
-import AboutPage from './containers/AboutPage';
+import AboutPageContainer from './containers/AboutPageContainer';
 import '../sass/bootstrap.css';
 import '../sass/bootstrap-blog.css';
 
@@ -20,7 +20,7 @@ ReactDOM.render(
         <Router history={history}>
             <Route path="/" component={LexiTheme}>
                 <IndexRoute component={ArticleListingPage} />
-                <Route path="about" component={AboutPage} />
+                <Route path="about" component={AboutPageContainer} />
                 <Route path=":year/:month/:name" component={ArticlePage} />
             </Route>
         </Router>

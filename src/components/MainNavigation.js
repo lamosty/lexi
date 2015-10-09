@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 
 export default class MainNavigation extends Component {
     render() {
-        console.log(this.props);
         return (
             <div className="blog-masthead">
                 <div className="container">
