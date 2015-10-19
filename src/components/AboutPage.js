@@ -10,13 +10,12 @@ export default class AboutPage extends Component {
     }
 
     render() {
-        const { post } = this.props;
-        console.log('post', post);
+        const { page } = this.props;
 
         return (
             <div className="blog-post">
-                <h2 className="blog-post-title">{post.title.rendered}</h2>
-                <div dangerouslySetInnerHTML={this.createMarkup(post.content.rendered)} />
+                <h2 className="blog-post-title">{page.title.rendered}</h2>
+                <div dangerouslySetInnerHTML={this.createMarkup(page.content.rendered)} />
             </div>
         );
     }
