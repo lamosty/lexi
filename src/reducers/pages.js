@@ -23,6 +23,7 @@ export default function pages(state = defaultState, action) {
             return Object.assign({}, state, {
                 [pageName]: page
             });
+
         default:
             return state;
     }

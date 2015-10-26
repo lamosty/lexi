@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 
-export default class ArticlePage extends Component {
+export default class Post extends Component {
+    createMarkup(html) {
+        return {
+            _html: html
+        };
+    }
+
     render() {
+        const { post } = this.props;
+
         return (
             <div className="blog-post">
-                <h2 className="blog-post-title">Sample blog post</h2>
-                <p className="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+                <h2 className="blog-post-title">{post.title.rendered}</h2>
+                <p className="blog-post-meta">{post.date} <a href="#">Mark</a></p>
 
                 <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
                 <hr />

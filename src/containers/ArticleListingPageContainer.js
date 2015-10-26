@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions';
 
-export default class ArticleListingPage extends Component {
+// Smart component
+class ArticleListingPageContainer extends Component {
+    componentWillMount() {
+        const { fetchPosts } = this.props;
+
+        fetchPosts();
+    }
+
     render() {
         return (
             <div className="article-listing">
@@ -74,3 +83,15 @@ export default class ArticleListingPage extends Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        posts: state.posts.posts,
+        pageNum: state.posts.pageNum
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    { fetchPosts }
+)(ArticleListingPageContainer);
