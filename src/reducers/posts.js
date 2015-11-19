@@ -11,7 +11,8 @@ export default function posts(state = defaultState, action) {
             const { pageNum, posts } = action.payload;
 
             return Object.assign({}, state, {
-                posts: posts
+                posts: posts,
+                pageNum: pageNum
             });
 
         default:

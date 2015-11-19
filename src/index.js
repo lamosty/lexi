@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
 import configureStore from './store/configureStore';
 import LexiTheme from './containers/LexiTheme';
-import ArticlePage from './containers/ArticlePage';
-import ArticleListingPage from './containers/ArticleListingPage';
+import PostsContainer from './containers/PostsContainer';
+import PostContainer from './containers/PostContainer';
 import AboutPageContainer from './containers/AboutPageContainer';
 import '../sass/bootstrap.css';
 import '../sass/bootstrap-blog.css';
@@ -19,9 +19,9 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={LexiTheme}>
-                <IndexRoute component={ArticleListingPage} />
+                <IndexRoute component={PostsContainer} />
                 <Route path="about" component={AboutPageContainer} />
-                <Route path=":year/:month/:name" component={ArticlePage} />
+                <Route path=":year/:month/:name" component={PostContainer} />
             </Route>
         </Router>
     </Provider>,
