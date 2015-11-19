@@ -12,7 +12,9 @@ class PostsContainer extends Component {
     }
 
     buildPosts(posts) {
-
+        return posts.map(post =>
+            <Post post={post} key={post.id} />
+        );
     }
 
     render() {
@@ -20,8 +22,6 @@ class PostsContainer extends Component {
 
         return (
             <div className="article-listing">
-                {posts.map(post =>
-                    <Post post={post} key={post.id} />)}
 
                 {this.buildPosts(posts)}
 
