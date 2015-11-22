@@ -19,6 +19,7 @@ class PostsContainer extends Component {
 
     render() {
         const { posts } = this.props;
+        console.log(this.props);
 
         return (
             <div className="article-listing">
@@ -39,7 +40,8 @@ class PostsContainer extends Component {
 function mapStateToProps(state) {
     return {
         posts: state.posts.posts,
-        pageNum: state.posts.pageNum
+        pageNum: state.posts.pageNum,
+        totalPages: state.posts.totalPages
     };
 }
 

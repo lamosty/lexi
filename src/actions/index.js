@@ -35,16 +35,21 @@ function shouldFetchPage(state, pageName) {
 export function fetchPosts(pageNum = 1) {
     return function (dispatch) {
         return fetch(WP_URL + '/posts?filter[paged]=' + pageNum + '&filter[posts_per_page]=' + POSTS_PER_PAGE)
-            .then(response => response.json())
-            .then(posts => dispatch(receivePosts(pageNum, posts)));
+            .then(response => Promise.all(
+                [response.headers.get('X-WP-TotalPages'), response.json()]
+            ))
+            .then(postsData => dispatch(
+                receivePosts(pageNum, postsData[0], postsData[1])
+            ));
     }
 }
 
-function receivePosts(pageNum, posts) {
+function receivePosts(pageNum, totalPages, posts) {
     return {
         type: RECEIVE_POSTS,
         payload: {
             pageNum: pageNum,
+            totalPages: totalPages,
             posts: posts
         }
     };
