@@ -20,6 +20,7 @@ ReactDOM.render(
         <Router history={history}>
             <Route path="/" component={LexiTheme}>
                 <IndexRoute component={PostsContainer} />
+                <Route path=":pageNum" component={PostsContainer} />
                 <Route path="about" component={AboutPageContainer} />
                 <Route path=":year/:month/:name" component={PostContainer} />
             </Route>

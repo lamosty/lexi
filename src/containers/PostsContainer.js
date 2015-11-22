@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import { Link } from 'react-router';
 import Post from '../components/Post';
 
 // Smart component
@@ -17,21 +18,55 @@ class PostsContainer extends Component {
         );
     }
 
+    buildPagination(pageNum, totalPages) {
+        const prevText = "Previous";
+        const nextText = "Next";
+
+        let prevLink = {
+            link: <a>{prevText}</a>,
+            enabled: false
+        };
+
+        let nextLink = {
+            link: <Link to={"/" + (pageNum + 1)}>{nextText}</Link>,
+            enabled: true
+        };
+
+        if (pageNum > 1 && pageNum < totalPages) {
+            prevLink.link = <Link to={"/" + (pageNum - 1)}>{prevText}</Link>;
+            prevLink.enabled = true;
+        } else if (pageNum == totalPages) {
+            nextLink.link = <a>{nextText}</a>;
+            nextLink.enabled = false;
+
+            prevLink.link = <Link to={"/" + (pageNum - 1)}>{prevText}</Link>;
+            prevLink.enabled = true;
+        }
+
+        return (
+            <nav>
+                <ul className="pager">
+                    {[prevLink, nextLink].map((link, index) =>
+                        <li key={index} className={link.enabled ? "" : "disabled"}>
+                            {link.link}
+                        </li>
+                    )}
+                </ul>
+            </nav>
+        );
+    }
+
     render() {
-        const { posts } = this.props;
-        console.log(this.props);
+        const { posts, totalPages } = this.props;
+        const { pageNum = 1 } = this.props.params;
 
         return (
             <div className="article-listing">
 
                 {this.buildPosts(posts)}
 
-                <nav>
-                    <ul className="pager">
-                        <li><a href="#">Older</a></li>
-                        <li className="disabled"><a href="#">Newer</a></li>
-                    </ul>
-                </nav>
+                {this.buildPagination(parseInt(pageNum), totalPages)}
+
             </div>
         );
     }
