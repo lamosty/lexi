@@ -1,4 +1,4 @@
 node_modules
 dist
 npm-debug.log
-src/config.js
+src/wp-url.js
