@@ -7,15 +7,23 @@ import Post from '../components/Post';
 // Smart component
 class PostsContainer extends Component {
     componentWillMount() {
-        const { fetchPosts } = this.props;
+        const { fetchPosts, pageNum = 1 } = this.props;
 
-        fetchPosts();
+        fetchPosts(pageNum);
     }
 
     buildPosts(posts) {
         return posts.map(post =>
             <Post post={post} key={post.id} />
         );
+    }
+
+    handlePaginationClick(pageNum) {
+        console.log('pagination clicked');
+        
+        scroll(0, 0);
+
+        this.props.fetchPosts(pageNum);
     }
 
     buildPagination(pageNum, totalPages) {
@@ -28,18 +36,18 @@ class PostsContainer extends Component {
         };
 
         let nextLink = {
-            link: <Link to={"/" + (pageNum + 1)}>{nextText}</Link>,
+            link: <Link to={"/" + (pageNum + 1)} onClick={() => this.handlePaginationClick(pageNum + 1)}>{nextText}</Link>,
             enabled: true
         };
 
         if (pageNum > 1 && pageNum < totalPages) {
-            prevLink.link = <Link to={"/" + (pageNum - 1)}>{prevText}</Link>;
+            prevLink.link = <Link to={"/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
             prevLink.enabled = true;
         } else if (pageNum == totalPages) {
             nextLink.link = <a>{nextText}</a>;
             nextLink.enabled = false;
 
-            prevLink.link = <Link to={"/" + (pageNum - 1)}>{prevText}</Link>;
+            prevLink.link = <Link to={"/" + (pageNum - 1)} onClick={() => this.handlePaginationClick(pageNum - 1)}>{prevText}</Link>;
             prevLink.enabled = true;
         }
 
@@ -56,9 +64,13 @@ class PostsContainer extends Component {
         );
     }
 
+    componentDidUpdate() {
+    }
+
     render() {
-        const { posts, totalPages } = this.props;
-        const { pageNum = 1 } = this.props.params;
+        const { posts, totalPages, pageNum = 1 } = this.props;
+
+        console.log('PostsContainer:render');
 
         return (
             <div className="article-listing">
