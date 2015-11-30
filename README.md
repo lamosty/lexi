@@ -36,10 +36,10 @@ inside it.
 
 Now, create a few sample posts. To see pagination in action, create more than 10. Create an "About" page with the slug (name) `about`. Lexi has this in its navigation menu.
 
-Open `src/actions/index.js` and modify:
+Create a new file `src/wp-url.js` with the following code:
 
 ```
-export const WP_URL = 'http://dev.wp/lexi/wp-json/wp/v2';
+export const WP_URL = '<{URL of your blog}/wp-json/wp/v2';
 ```
 
 to match your WordPress URL address. For example:
