@@ -20,7 +20,7 @@ class PostsContainer extends Component {
 
     handlePaginationClick(pageNum) {
         console.log('pagination clicked');
-        
+
         scroll(0, 0);
 
         this.props.fetchPosts(pageNum);

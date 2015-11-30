@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
+import { WP_URL } from '../config';
 
-export const WP_URL = 'http://dev.wp/lexi/wp-json/wp/v2';
 export const RECEIVE_PAGE = 'RECEIVE_PAGE';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 
