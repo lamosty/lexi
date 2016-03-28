@@ -1,4 +1,4 @@
-__Notice__: The project is probably outdated as I haven't maintained it in a while and these technologies tend to move fast. This project was created just for learning purpose and it has accomplished that goal for me.
+__Notice__: The project is probably outdated as I haven't maintained it in a while and these technologies tend to move fast. It was created just for learning purpose and it has accomplished that goal for me. If something doesn't work, throws errors, things like that, try to find the culprit and fix it yourself. It's a good training exercise. PRs are welcome.
 
 # [Lexi](https://lamosty.com/2015/09/react-single-page-wordpress-rest-api-theme-tutorial/)
 
