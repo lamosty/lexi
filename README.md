@@ -1,3 +1,5 @@
+__Notice__: The project is probably outdated as I haven't maintained it in a while and these technologies tend to move fast. This project was created just for learning purpose and it has accomplished that goal for me.
+
 # [Lexi](https://lamosty.com/2015/09/react-single-page-wordpress-rest-api-theme-tutorial/)
 
 Lexi is an experimental WordPress theme built with [React](https://facebook.github.io/react/) so you won't find much PHP here. It uses [React Router](https://github.com/rackt/react-router) for routing, [Redux](https://github.com/rackt/redux) for managing its state and [WP REST API](https://github.com/WP-API/WP-API) for getting data from the WordPress backend.
